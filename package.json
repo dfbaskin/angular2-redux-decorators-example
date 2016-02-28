@@ -1,0 +1,68 @@
+{
+  "name": "angular2-redux-decorators-example",
+  "version": "1.0.0",
+  "description": "Example of using Angular2 and Redux with Application Store subscription decorators.",
+  "main": "index.js",
+  "scripts": {
+    "web": "babel-node server",
+    "lint": "npm-run-all lint:js lint:ts",
+    "lint:ts": "tslint src/**/*.ts",
+    "lint:js": "standard",
+    "clean": "rimraf dist/es6 dist/es5",
+    "typings": "typings install",
+    "build": "npm-run-all lint clean build:css build:ts build:es6",
+    "build:css": "babel-node scripts/build-css",
+    "build:src": "npm-run-all build:ts build:es6",
+    "build:ts": "tsc",
+    "prebuild:es6": "rimraf dist/temp dist/es5",
+    "build:es6": "babel dist/es6/**/*.js --out-dir dist/temp",
+    "postbuild:es6": "node-mv dist/temp/dist/es6 dist/es5 && rimraf dist/temp"
+  },
+  "keywords": [
+    "Redux",
+    "Angular2"
+  ],
+  "author": "Dave F. Baskin <dfbaskin@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dfbaskin/angular2-redux-decorators-example.git"
+  },
+  "standard": {
+    "ignore": [
+      "dist/"
+    ]
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-beta.7",
+    "es6-promise": "^3.1.2",
+    "es6-shim": "^0.33.13",
+    "express": "^4.13.4",
+    "foundation-sites": "^6.2.0",
+    "lodash": "^4.5.1",
+    "npm-run-all": "^1.5.1",
+    "redux": "^3.3.1",
+    "redux-thunk": "^1.0.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "^5.0.0-beta.2",
+    "systemjs": "^0.19.23",
+    "zone.js": "^0.5.15"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.5.2",
+    "babel-plugin-transform-es2015-modules-systemjs": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "node-mv": "^0.1.3",
+    "node-sass": "^3.4.2",
+    "q": "^1.4.1",
+    "rimraf": "^2.5.2",
+    "standard": "^6.0.5",
+    "tslint": "^3.3.0",
+    "typescript": "^1.7.5",
+    "typings": "^0.6.8"
+  }
+}
