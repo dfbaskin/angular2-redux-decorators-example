@@ -63,7 +63,7 @@ export function AppStoreSubscriber() {
                     console.log(`Unsubscribing from ${subscriptionList.length} subscription(s).`)
                     subscriptionList.forEach(subscription => subscription.unsubscribe())
                     console.log('Decorator ngOnDestroy()')
-                    subscriptionList = undefined
+                    delete this[componentSubscriptionsName]
                 }
             }
         });
